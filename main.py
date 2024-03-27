@@ -78,7 +78,7 @@ print(f"Полученное значение функции: {f2(result_f1.x[0]
 
 print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
 print(f"Полученная точка: ({result_f2.x[0]}, {result_f2.x[1]})")
-print(f"Полученное значение функции: {f2(result_f2.x[0], result_f2.x[1])}")
+print(f"Полученное значение функции: {f2(result_f2.x[0], result_f2.x[1])}\n")
 
 
 x = np.linspace(-1, 1, 100)
