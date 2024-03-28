@@ -20,13 +20,13 @@ def f2(x: Real, y: Real) -> Real:
 	return x ** 2 * y ** 2 * np.log(8 * x ** 2 + 3 * y ** 2)
 
 
-def grad_f1(x: Real, y: Real) -> NDArray[Real, ...]:
+def grad_f1(x: Real, y: Real) -> NDArray[Real]:
 	df_dx = 2 * x
 	df_dy = 2 * y
 	return np.array([df_dx, df_dy])
 
 
-def grad_f2(x: Real, y: Real) -> NDArray[Real, ...]:
+def grad_f2(x: Real, y: Real) -> NDArray[Real]:
 	df_dx = 2 * x * y ** 2 * (np.log(8 * x ** 2 + 3 * y ** 2) + 8 * x ** 2 / (8 * x ** 2 + 3 * y ** 2))
 	df_dy = 2 * x ** 2 * y * (np.log(8 * x ** 2 + 3 * y ** 2) + 3 * y ** 2 / (8 * x ** 2 + 3 * y ** 2))
 	return np.array([df_dx, df_dy])
@@ -105,11 +105,11 @@ print(f"Полученное значение функции: {f2(x_opt2_ter, y_
 print(f"Время работы: {execution_time2_ter:.4f} сек")
 
 
-def f1_arr(x: NDArray[Real, ...]) -> Real:
+def f1_arr(x: NDArray[Real]) -> Real:
 	return f1(x[0], x[1])
 
 
-def f2_arr(x: NDArray[Real, ...]) -> Real:
+def f2_arr(x: NDArray[Real]) -> Real:
 	return f2(x[0], x[1])
 
 

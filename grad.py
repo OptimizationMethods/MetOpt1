@@ -60,7 +60,7 @@ def ternary_search(f: Callable[[Real], Real], eps: Real) -> Real:
 
 def gradient_descent(
 		f: Callable[[Real, ...], Real],
-		grad: Callable[[Real, ...], NDArray[Real, ...]],
+		grad: Callable[[Real, ...], NDArray[Real]],
 		x0: Real,
 		y0: Real,
 		selection_method: Callable[[Callable, Real], Real],
