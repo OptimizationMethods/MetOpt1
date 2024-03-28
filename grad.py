@@ -38,7 +38,7 @@ def ternary_search(f, eps):
     return (left + right) / 2
 
 
-def gradient_descent(f, grad, x0, y0, selection_method, eps, max_iter=1000):
+def gradient_descent(f, grad, x0, y0, selection_method, eps, learning_rate=None, max_iter=1500):
     x_prev = x0
     y_prev = y0
     trajectory = [(x0, y0)]
@@ -50,8 +50,11 @@ def gradient_descent(f, grad, x0, y0, selection_method, eps, max_iter=1000):
     y = y_prev
     for _ in range(max_iter):
         grad_f = grad(x_prev, y_prev)
-        f_alpha = lambda alpha: f(x_prev - alpha * grad_f[0], y_prev - alpha * grad_f[1])
-        alpha = selection_method(f_alpha, eps)
+        if learning_rate is not None:
+            alpha = learning_rate
+        else:
+            f_alpha = lambda alpha: f(x_prev - alpha * grad_f[0], y_prev - alpha * grad_f[1])
+            alpha = selection_method(f_alpha, eps)
         x = x_prev - alpha * grad_f[0]
         y = y_prev - alpha * grad_f[1]
 

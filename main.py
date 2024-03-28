@@ -24,10 +24,20 @@ def grad_f2(x, y):
 
 x0 = 0.1
 y0 = 0.1
+learning_rate = 0.1
+
+x_neopt1, y_neopt1, num_iterations_neopt1, execution_time_neopt1, trajectory_neopt1 = gradient_descent(f1, grad_f1, x0, y0, golden_section_search, eps, learning_rate)
+
+print("\nФункция x^2 + y^2 (неоптимальный шаг):")
+print(f"Критерий останова: |delta f| < {eps}")
+print(f"Число итераций: {num_iterations_neopt1}")
+print(f"Полученная точка: ({x_neopt1}, {y_neopt1})")
+print(f"Полученное значение функции: {f1(x_neopt1, y_neopt1)}")
+print(f"Время работы: {execution_time_neopt1:.4f} сек")
 
 x_opt1, y_opt1, num_iterations1, execution_time1, trajectory1 = gradient_descent(f1, grad_f1, x0, y0, golden_section_search, eps)
 
-print("Функция x^2 + y^2:")
+print("\nФункция x^2 + y^2 (золотое сечение):")
 print(f"Критерий останова: |delta f| < {eps}")
 print(f"Число итераций: {num_iterations1}")
 print(f"Полученная точка: ({x_opt1}, {y_opt1})")
@@ -43,9 +53,18 @@ print(f"Полученная точка: ({x_opt1_ter}, {y_opt1_ter})")
 print(f"Полученное значение функции: {f1(x_opt1_ter, y_opt1_ter)}")
 print(f"Время работы: {execution_time1_ter:.4f} сек")
 
+x_neopt2, y_neopt2, num_iterations_neopt2, execution_time_neopt2, trajectory_neopt2 = gradient_descent(f2, grad_f2, x0, y0, golden_section_search, eps, learning_rate)
+
+print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2) (неоптимальный шаг):")
+print(f"Критерий останова: |delta f| < {eps}")
+print(f"Число итераций: {num_iterations_neopt2}")
+print(f"Полученная точка: ({x_neopt2}, {y_neopt2})")
+print(f"Полученное значение функции: {f2(x_neopt2, y_neopt2)}")
+print(f"Время работы: {execution_time_neopt2:.4f} сек")
+
 x_opt2, y_opt2, num_iterations2, execution_time2, trajectory2 = gradient_descent(f2, grad_f2, x0, y0, golden_section_search, eps)
 
-print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
+print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2) (золотое сечение):")
 print(f"Критерий останова: |delta f| < {eps}")
 print(f"Число итераций: {num_iterations2}")
 print(f"Полученная точка: ({x_opt2}, {y_opt2})")
