@@ -3,11 +3,11 @@
 This project implements and compares different optimization algorithms, including Gradient Descent, Golden Section Search, and Ternary Search, on two functions: 
 - `f1`
 
-<img src="https://latex.codecogs.com/gif.latex?f(x, y) = x^2 + y^2 " />
+![equation](https://latex.codecogs.com/gif.image?%5Cinline%20%5Cdpi%7B110%7Df(x,y)=x%5E2&plus;y%5E2)
 
 - `f2`
 
-<img src="https://latex.codecogs.com/gif.latex?f(x, y) = x^2 \cdot y^2 \cdot \log{8x^2 + 3y^2}" />
+![equation](https://latex.codecogs.com/gif.image?%5Cinline%20%5Cdpi%7B110%7Df(x,y)=x%5E2%5Ccdot%20y%5E2%5Ccdot%5Clog%5Cleft(%7B8x%5E2&plus;3y%5E2%7D%5Cright))
 
 ## Getting Started
 
