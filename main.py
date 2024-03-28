@@ -41,7 +41,12 @@ x_neopt1, y_neopt1, num_iterations_neopt1, execution_time_neopt1, trajectory_neo
                                                                                                        EPS,
                                                                                                        learning_rate)
 
-print_results(x_neopt1, y_neopt1, f1(x_neopt1, y_neopt1), num_iterations_neopt1, execution_time_neopt1, Functions.SQUARES_SUM, SelectionMethods.NON_OPTIMAL_STEP)
+print_results(x_neopt1, y_neopt1,
+              f1(x_neopt1, y_neopt1),
+              num_iterations_neopt1,
+              execution_time_neopt1,
+              Functions.SQUARES_SUM,
+              SelectionMethods.NON_OPTIMAL_STEP)
 
 
 x_opt1, y_opt1, num_iterations1, execution_time1, trajectory1 = gradient_descent(f1, grad_f1, x0, y0,
