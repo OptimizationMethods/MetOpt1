@@ -5,11 +5,10 @@ import matplotlib.pyplot as plt
 from grad import gradient_descent, golden_section_search, ternary_search
 from scipy.optimize import minimize
 from mpl_toolkits.mplot3d import Axes3D
+from print_utils import *
 
 from numbers import Real
 from numpy.typing import NDArray
-
-EPS: Real = 1e-12
 
 
 def f1(x: Real, y: Real) -> Real:
@@ -42,67 +41,64 @@ x_neopt1, y_neopt1, num_iterations_neopt1, execution_time_neopt1, trajectory_neo
                                                                                                        EPS,
                                                                                                        learning_rate)
 
-print("\nФункция x^2 + y^2 (неоптимальный шаг):")
-print(f"Критерий останова: |delta f| < {EPS}")
-print(f"Число итераций: {num_iterations_neopt1}")
-print(f"Полученная точка: ({x_neopt1}, {y_neopt1})")
-print(f"Полученное значение функции: {f1(x_neopt1, y_neopt1)}")
-print(f"Время работы: {execution_time_neopt1:.4f} сек")
+print_results(x_neopt1, y_neopt1, f1(x_neopt1, y_neopt1), num_iterations_neopt1, execution_time_neopt1, Functions.SQUARES_SUM, SelectionMethods.NON_OPTIMAL_STEP)
+
 
 x_opt1, y_opt1, num_iterations1, execution_time1, trajectory1 = gradient_descent(f1, grad_f1, x0, y0,
                                                                                  golden_section_search, EPS)
 
-print("\nФункция x^2 + y^2 (золотое сечение):")
-print(f"Критерий останова: |delta f| < {EPS}")
-print(f"Число итераций: {num_iterations1}")
-print(f"Полученная точка: ({x_opt1}, {y_opt1})")
-print(f"Полученное значение функции: {f1(x_opt1, y_opt1)}")
-print(f"Время работы: {execution_time1:.4f} сек")
+print_results(x_opt1, y_opt1,
+              f1(x_opt1, y_opt1),
+              num_iterations1,
+              execution_time1,
+              Functions.SQUARES_SUM,
+              SelectionMethods.GOLDEN_SECTION)
+
 
 x_opt1_ter, y_opt1_ter, num_iterations1_ter, execution_time1_ter, trajectory1_ter = gradient_descent(f1, grad_f1, x0,
                                                                                                      y0, ternary_search,
                                                                                                      EPS)
 
-print("\nФункция x^2 + y^2 (тернарный поиск):")
-print(f"Критерий останова: |delta f| < {EPS}")
-print(f"Число итераций: {num_iterations1_ter}")
-print(f"Полученная точка: ({x_opt1_ter}, {y_opt1_ter})")
-print(f"Полученное значение функции: {f1(x_opt1_ter, y_opt1_ter)}")
-print(f"Время работы: {execution_time1_ter:.4f} сек")
+print_results(x_opt1_ter, y_opt1_ter,
+              f1(x_opt1_ter, y_opt1_ter),
+              num_iterations1_ter,
+              execution_time1_ter,
+              Functions.SQUARES_SUM,
+              SelectionMethods.TERNARY_SEARCH)
+
 
 x_neopt2, y_neopt2, num_iterations_neopt2, execution_time_neopt2, trajectory_neopt2 = gradient_descent(f2, grad_f2, x0,
                                                                                                        y0,
                                                                                                        golden_section_search,
                                                                                                        EPS,
                                                                                                        learning_rate)
+print_results(x_neopt2, y_neopt2,
+              f2(x_neopt2, y_neopt2),
+              num_iterations_neopt2,
+              execution_time_neopt2,
+              Functions.LOG_PRODUCT,
+              SelectionMethods.NON_OPTIMAL_STEP)
 
-print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2) (неоптимальный шаг):")
-print(f"Критерий останова: |delta f| < {EPS}")
-print(f"Число итераций: {num_iterations_neopt2}")
-print(f"Полученная точка: ({x_neopt2}, {y_neopt2})")
-print(f"Полученное значение функции: {f2(x_neopt2, y_neopt2)}")
-print(f"Время работы: {execution_time_neopt2:.4f} сек")
 
 x_opt2, y_opt2, num_iterations2, execution_time2, trajectory2 = gradient_descent(f2, grad_f2, x0, y0,
                                                                                  golden_section_search, EPS)
+print_results(x_opt2, y_opt2,
+              f2(x_opt2, y_opt2),
+              num_iterations2,
+              execution_time2,
+              Functions.LOG_PRODUCT,
+              SelectionMethods.GOLDEN_SECTION)
 
-print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2) (золотое сечение):")
-print(f"Критерий останова: |delta f| < {EPS}")
-print(f"Число итераций: {num_iterations2}")
-print(f"Полученная точка: ({x_opt2}, {y_opt2})")
-print(f"Полученное значение функции: {f2(x_opt2, y_opt2)}")
-print(f"Время работы: {execution_time2:.4f} сек")
 
 x_opt2_ter, y_opt2_ter, num_iterations2_ter, execution_time2_ter, trajectory2_ter = gradient_descent(f2, grad_f2, x0,
                                                                                                      y0, ternary_search,
                                                                                                      EPS)
-
-print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2) (тернарный поиск):")
-print(f"Критерий останова: |delta f| < {EPS}")
-print(f"Число итераций: {num_iterations2_ter}")
-print(f"Полученная точка: ({x_opt2_ter}, {y_opt2_ter})")
-print(f"Полученное значение функции: {f2(x_opt2_ter, y_opt2_ter)}")
-print(f"Время работы: {execution_time2_ter:.4f} сек")
+print_results(x_opt2_ter, y_opt2_ter,
+              f2(x_opt2_ter, y_opt2_ter),
+              num_iterations2_ter,
+              execution_time2_ter,
+              Functions.LOG_PRODUCT,
+              SelectionMethods.TERNARY_SEARCH)
 
 
 def f1_arr(x: NDArray[Real]) -> Real:
@@ -116,13 +112,9 @@ def f2_arr(x: NDArray[Real]) -> Real:
 result_f1 = minimize(f1_arr, np.array([x0, y0]), method='Nelder-Mead', tol=EPS)
 result_f2 = minimize(f2_arr, np.array([x0, y0]), method='Nelder-Mead', tol=EPS)
 
-print("\nФункция x^2 + y^2:")
-print(f"Полученная точка: ({result_f1.x[0]}, {result_f1.x[1]})")
-print(f"Полученное значение функции: {f2(result_f1.x[0], result_f1.x[1])}")
+nelder_mead_print(result_f1, Functions.SQUARES_SUM)
 
-print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
-print(f"Полученная точка: ({result_f2.x[0]}, {result_f2.x[1]})")
-print(f"Полученное значение функции: {f2(result_f2.x[0], result_f2.x[1])}\n")
+nelder_mead_print(result_f2, Functions.LOG_PRODUCT)
 
 x = np.linspace(-1, 1, 100)
 y = np.linspace(-1, 1, 100)
