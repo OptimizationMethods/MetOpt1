@@ -5,7 +5,7 @@ from scipy.optimize import OptimizeResult
 import numpy as np
 
 
-EPS: Real = 1e-12
+EPS = 1e-12
 
 
 class Functions(Enum):
@@ -13,7 +13,7 @@ class Functions(Enum):
 	Enum class for functions string representation
 	"""
 	SQUARES_SUM: str = "x^2 + y^2"
-	LOG_PRODUCT: str = "x^2 * y^2 * log(8x^2 + 3y^2)"
+	ANOTHER_ONE: str = "2x^2 + 3y^2 + 4xy + 5x + 6y"
 
 
 class SelectionMethods(Enum):
@@ -52,6 +52,7 @@ def nelder_mead_print(
 	"""
 	Prints the results of the Nelder-Mead optimization algorithm.
 	"""
-	print(f"\nФункция {function.value}:")
+	print(f"\nNelder-Mead: {1 if function == Functions.SQUARES_SUM else 2}")
+	print(f"Функция {function.value}:")
 	print(f"Полученная точка: ({np.round(result.x[0], 4)}, {np.round(result.x[1], 4)})")
 	print(f"Полученное значение функции: {result.fun}")
